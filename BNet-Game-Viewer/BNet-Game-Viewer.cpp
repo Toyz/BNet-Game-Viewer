@@ -42,7 +42,7 @@ int main(array<System::String ^> ^args)
     System::Collections::ArrayList^ fileLines = gcnew  System::Collections::ArrayList;
     System::String^ topLine = System::String::Format("{0, -15} {1}", "TYPE", "DETAIL");
 
-    fileLines->Add(topLine + "\n");
+    fileLines->Add(topLine + System::Environment::NewLine);
     Log(topLine);
     Log("");
 
@@ -55,7 +55,7 @@ int main(array<System::String ^> ^args)
             Log(line);
 
             if(firstSplit->Length -1 == i) {
-                line += "\n";
+                line += System::Environment::NewLine;
             }
             fileLines->Add(line);
         }
@@ -65,7 +65,7 @@ int main(array<System::String ^> ^args)
 
     if (saveFile) {
         array<System::String^>^ allLines = reinterpret_cast<array<System::String^>^>(fileLines->ToArray(System::String::typeid));
-        System::IO::File::WriteAllText(saveFile, System::String::Join("\n", allLines), System::Text::UTF8Encoding::Default);
+        System::IO::File::WriteAllText(saveFile, System::String::Join(System::Environment::NewLine, allLines), System::Text::UTF8Encoding::Default);
     }
     return 0;
 }
