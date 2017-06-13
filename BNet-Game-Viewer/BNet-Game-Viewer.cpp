@@ -1,7 +1,7 @@
 // BNet-Game-Viewer.cpp : main project file.
 #include "stdafx.h"
 
-void Log(System::String ^ data) {
+void Log(System::String^ data) {
     System::Console::WriteLine(data);
 }
 
@@ -27,7 +27,7 @@ System::Collections::ArrayList ^ CreateHeaderKeys(System::String^ data) {
     return headers;
 }
 
-int main(array<System::String ^> ^args)
+int main(array<System::String^> ^args)
 {
     System::String ^ saveFile = (args->Length == 4 ?  args[3] : nullptr);
 
@@ -39,7 +39,7 @@ int main(array<System::String ^> ^args)
     System::Collections::ArrayList^ headers = CreateHeaderKeys((System::String ^)rawData[0]);
     rawData->RemoveAt(0);
 
-    System::Collections::ArrayList^ fileLines = gcnew  System::Collections::ArrayList;
+    System::Collections::ArrayList^ fileLines = gcnew System::Collections::ArrayList;
     System::String^ topLine = System::String::Format("{0, -15} {1}", "TYPE", "DETAIL");
 
     fileLines->Add(topLine + System::Environment::NewLine);
